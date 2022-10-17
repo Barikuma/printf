@@ -17,8 +17,10 @@ int _printf(const char *format, ...)
 	char next, current;
 
 	va_start(args, format);
-
-	while (format && format[i])
+	
+	if (format == NULL)
+		return -1;
+	while (format[i])
 	{
 		current = format[i];
 		next = format[i + 1];
@@ -29,7 +31,7 @@ int _printf(const char *format, ...)
 		}
 		else if (current == '%' && next == 's')
 		{
-			_puts((char*)va_arg(args, char*)), len++, i++;
+			_puts((char *)va_arg(args, char *)), len++, i++;
 		}
 		else if (current == '%' && next == '%')
 		{
