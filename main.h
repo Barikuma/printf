@@ -5,4 +5,5 @@ int _strlen(char *str);
 int _putchar(char c);
 int _puts(char *str);
 void _putint(int n);
+int intlen(int num);
 #endif
