@@ -4,14 +4,19 @@
 /**
  * _puts - prints a string on the standard output
  * @str: string to print
- * Return: void
+ * Return: The length of the string
  */
 
 int _puts(char *str)
 {
-	int len = _strlen(str);
+	char *s = str;
+	int i = 0;
 
-	write(1, str, len);
+	if (!s)
+		s = "(null)";
 
-	return (len);
+	while (s[i])
+		_putchar(s[i++]);
+
+	return (i);
 }
