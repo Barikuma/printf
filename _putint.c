@@ -11,6 +11,12 @@ int _putint(int n)
 	unsigned int num = n;
 	int len = 0;
 
+	if (!num)
+	{
+		_putchar('0' + 0);
+		return (1);
+	}
+
 	if (n < 0)
 	{
 		len += _putchar('-');
@@ -28,7 +34,5 @@ int _putint(int n)
 		n /= 10;
 		len++;
 	}
-	if (!n)
-		len++;
 	return (len);
 }
