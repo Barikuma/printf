@@ -13,7 +13,7 @@ int _printf(const char *format, ...)
 {
 	va_list args;
 	int len = 0, i = 0, tmp;
-	char next, current, *str;
+	char next, current, *str, ch;
 
 	va_start(args, format);
 
@@ -25,28 +25,24 @@ int _printf(const char *format, ...)
 		next = format[i + 1];
 
 		if (current == '%' && next == 'c')
-			_putchar((char)va_arg(args, int)), len++, i++;
-
+		{
+			ch = va_arg(args, int);
+			len += _putchar(ch), i++;
+		}
 		else if (current == '%' && next == 's')
 		{
 			str = (char *)va_arg(args, char *);
-			if (!str)
-			{
-				str = "(null)";
-				_puts(str), len += _strlen(str), i++;
-			}
-			else
-				_puts(str), len += _strlen(str), i++;
+			len += _puts(str), i++;
 		}
 		else if (current == '%' && next == '%')
-			_putchar('%'), len++, i++;
+			len += _putchar('%'), i++;
 		else if (current == '%' && (next == 'd' || next == 'i'))
 		{
 			tmp = va_arg(args, int);
-			_putint(tmp), len += intlen(tmp), i++;
+			len += _putint(tmp), i++;
 		}
 		else
-			_putchar(format[i]), len++;
+			len += _putchar(format[i]);
 		i++;
 	}
 	va_end(args);
