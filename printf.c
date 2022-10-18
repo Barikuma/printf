@@ -39,7 +39,7 @@ int _printf(const char *format, ...)
 			len += _putchar('%'), i++;
 		else if (current == '%' && (next == 'd' || next == 'i'))
 		{
-			tmp = va_arg(args, int);
+			tmp = va_arg(args, int);	
 			len += _putint(tmp), i++;
 		}
 		else

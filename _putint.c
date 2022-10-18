@@ -28,5 +28,7 @@ int _putint(int n)
 		n /= 10;
 		len++;
 	}
+	if (!n)
+		len++;
 	return (len);
 }

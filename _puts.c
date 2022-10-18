@@ -13,10 +13,10 @@ int _puts(char *str)
 	int i = 0;
 
 	if (!s)
-		str = "(null)";
+		s = "(null)";
 
 	while (s[i])
-		_putchar(str[i++]);
+		_putchar(s[i++]);
 
 	return (i);
 }
