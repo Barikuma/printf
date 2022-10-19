@@ -33,7 +33,7 @@ int _printf(const char *format, ...)
 		else if (current == '%' && next == 's')
 		{
 			str = (char *)va_arg(args, char *);
-			len += _strlen(str),_puts(str), i++;
+			len += _puts(str), i++;
 		}
 		else if (current == '%' && next == '%')
 			len += _putchar('%'), i++;
