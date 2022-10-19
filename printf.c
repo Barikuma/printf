@@ -1,7 +1,7 @@
 #include "main.h"
 #include <unistd.h>
 #include <stdarg.h>
-#include <stddef.h>
+
 
 /**
  * _printf - prints all data types of characters on the standard output
@@ -27,7 +27,7 @@ int _printf(const char *format, ...)
 
 		if (current == '%' && next == 'c')
 		{
-			ch = va_arg(args, int);
+			ch = (char)va_arg(args, int);
 			len += _putchar(ch), i++;
 		}
 		else if (current == '%' && next == 's')
